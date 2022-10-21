@@ -27,33 +27,33 @@ export function CalculadoraKeys() {
     switch (expressao) {
       case "+":
         {
-          var soma = parseInt(digitos[0]) + parseInt(digitos[1]);
+          var resultado = parseInt(digitos[0]) + parseInt(digitos[1]);
           console.log("digitos", digitos);
-          console.log("resultado: " + soma);
+          console.log("resultado: " + resultado);
           limpar();
         }
         break;
       case "-":
         {
-          var soma = parseInt(digitos[0]) - parseInt(digitos[1]);
+          var resultado = parseInt(digitos[0]) - parseInt(digitos[1]);
           console.log("digitos", digitos);
-          console.log("resultado: " + soma);
+          console.log("resultado: " + resultado);
           limpar();
         }
         break;
       case "/":
         {
-          var soma = parseInt(digitos[0]) / parseInt(digitos[1]);
+          var resultado = parseInt(digitos[0]) / parseInt(digitos[1]);
           console.log("digitos", digitos);
-          console.log("resultado: " + soma);
+          console.log("resultado: " + resultado);
           limpar();
         }
         break;
       case "x":
         {
-          var soma = parseInt(digitos[0]) * parseInt(digitos[1]);
+          var resultado = parseInt(digitos[0]) * parseInt(digitos[1]);
           console.log("digitos", digitos);
-          console.log("resultado: " + soma);
+          console.log("resultado: " + resultado);
           limpar();
         }
         break;
