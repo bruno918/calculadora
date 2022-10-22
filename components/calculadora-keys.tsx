@@ -23,14 +23,21 @@ export function CalculadoraKeys() {
     }
   };
 
+
   const calcular = () => {
+
     switch (expressao) {
+    case 'apagar': {
+      digitos.pop()
+    }
+    break
       case "+":
         {
           var resultado = parseInt(digitos[0]) + parseInt(digitos[1]);
           console.log("digitos", digitos);
           console.log("resultado: " + resultado);
-          limpar();
+      
+          //limpar();
         }
         break;
       case "-":
@@ -68,7 +75,7 @@ export function CalculadoraKeys() {
         <TouchableHighlight style={keysStyles.columnKey}>
           <Text style={keysStyles.keyText}>C</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={keysStyles.columnKey}>
+        <TouchableHighlight style={keysStyles.columnKey} onPress={() => onChangeExpressao('apagar')}>
           <Image
             source={require("../assets/backspace.png")}
             style={keysStyles.backspace}

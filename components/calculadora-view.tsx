@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { viewStyles } from '../assets/styles/view.style';
-
+import { CalculadoraKeys } from './calculadora-keys';
 export function CalculadoraView() {
   return (
     <View style={viewStyles.container}>
