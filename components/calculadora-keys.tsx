@@ -21,22 +21,26 @@ export function CalculadoraKeys() {
       digitos[1] = digitos[1].concat(String(valor));
       onChangeDigitos(digitos);
     }
+    console.log(digitos);
   };
 
+  const apagar = () => {
+    if (!expressao) {
+      digitos[0] = digitos[0].substring(0, digitos[0].length - 1);
+    } else {
+      digitos[1] = digitos[1].substring(0, digitos.length - 1);
+    }
+    onChangeDigitos(digitos);
+  };
 
   const calcular = () => {
-
     switch (expressao) {
-    case 'apagar': {
-      digitos.pop()
-    }
-    break
       case "+":
         {
           var resultado = parseInt(digitos[0]) + parseInt(digitos[1]);
           console.log("digitos", digitos);
           console.log("resultado: " + resultado);
-      
+
           //limpar();
         }
         break;
@@ -70,12 +74,17 @@ export function CalculadoraKeys() {
     <View>
       <View style={keysStyles.rowKeys}>
         <TouchableHighlight style={keysStyles.columnKey}>
-          <Text style={keysStyles.keyText} onPress={()=> limpar()}>CE</Text>
+          <Text style={keysStyles.keyText} onPress={() => limpar()}>
+            CE
+          </Text>
         </TouchableHighlight>
         <TouchableHighlight style={keysStyles.columnKey}>
           <Text style={keysStyles.keyText}>C</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={keysStyles.columnKey} onPress={() => onChangeExpressao('apagar')}>
+        <TouchableHighlight
+          style={keysStyles.columnKey}
+          onPress={() => onChangeExpressao("apagar")}
+        >
           <Image
             source={require("../assets/backspace.png")}
             style={keysStyles.backspace}
