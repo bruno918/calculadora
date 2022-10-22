@@ -1,3 +1,4 @@
+import { console } from "globl";
 import { useState } from "react";
 import { Text, View, Image, TouchableHighlight } from "react-native";
 import { keysStyles } from "../assets/styles/keys.style";
@@ -28,9 +29,25 @@ export function CalculadoraKeys() {
     if (!expressao) {
       digitos[0] = digitos[0].substring(0, digitos[0].length - 1);
     } else {
-      digitos[1] = digitos[1].substring(0, digitos.length - 1);
+      digitos[1] = digitos[1].substring(0, digitos[1].length - 1);
     }
     onChangeDigitos(digitos);
+    console.log(digitos);
+  };
+  const ce = () => {
+    if (!expressao) {
+      digitos[0] = digitos[0].substring(
+        0,
+        digitos[0].length - digitos[0].length
+      );
+    } else {
+      digitos[1] = digitos[1].substring(
+        0,
+        digitos[1].length - digitos[1].length
+      );
+    }
+    onChangeDigitos(digitos);
+    console.log(digitos);
   };
 
   const calcular = () => {
@@ -74,16 +91,19 @@ export function CalculadoraKeys() {
     <View>
       <View style={keysStyles.rowKeys}>
         <TouchableHighlight style={keysStyles.columnKey}>
-          <Text style={keysStyles.keyText} onPress={() => limpar()}>
+          <Text style={keysStyles.keyText} onPress={() => ce()}>
             CE
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={keysStyles.columnKey}>
+        <TouchableHighlight
+          style={keysStyles.columnKey}
+          onPress={() => limpar()}
+        >
           <Text style={keysStyles.keyText}>C</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={keysStyles.columnKey}
-          onPress={() => onChangeExpressao("apagar")}
+          onPress={() => apagar()}
         >
           <Image
             source={require("../assets/backspace.png")}
