@@ -50,6 +50,15 @@ export function CalculadoraKeys() {
     console.log(digitos);
   };
 
+  const AlterarSinal = () => {
+    if (!expressao) {
+      const NovoValor = String(Number(digitos[0]) *-1)      
+    onChangeDigitos([NovoValor]);
+  } else {
+    const NovoValor = String(Number(digitos[1]) *-1) 
+    onChangeDigitos([NovoValor])
+  }
+  }
   const calcular = () => {
     switch (expressao) {
       case "+":
@@ -222,7 +231,7 @@ export function CalculadoraKeys() {
         </TouchableHighlight>
       </View>
       <View style={keysStyles.rowKeys}>
-        <TouchableHighlight style={keysStyles.columnKey}>
+        <TouchableHighlight style={keysStyles.columnKey} onPress={() => AlterarSinal()}>
           <Text style={keysStyles.keyText}>+/-</Text>
         </TouchableHighlight>
         <TouchableHighlight
